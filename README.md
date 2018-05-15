@@ -2,8 +2,6 @@
 A simple roulette game in pyhton with only graphics.py library
 
     #Inizio
-    Code here:
-
     from graphics import *
     from math import *
 
