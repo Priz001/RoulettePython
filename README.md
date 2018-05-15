@@ -1,215 +1,216 @@
 # RoulettePython
 A simple roulette game in pyhton with only graphics.py library
 
-Code here:
+    #Inizio
+    Code here:
 
-from graphics import *
-from math import *
+    from graphics import *
+    from math import *
 
-def main():
+    def main():
 
-    #Pagina Iniziale
-    
-    win = GraphWin("Roulette", 500, 500)
-    win.setBackground("green")
-    
-    pt1 = Point(40,220)
-    pt2 = Point(460,220)
-    Lne = Line(pt1,pt2)
-    Lne.setOutline(color_rgb(250,250,250))
-    Lne.draw(win)
+        #Pagina Iniziale
 
-    txt = Text(Point(250,200), "Benvenuto al gioco della Roulette!")
-    txt.setSize(20)
-    txt.setTextColor(color_rgb(250, 250 ,250))
-    txt.draw(win)
+        win = GraphWin("Roulette", 500, 500)
+        win.setBackground("green")
 
-    Rec = Rectangle(Point(170,260),Point(330,300))
-    Rec.draw(win)
-    Rec.setOutline(color_rgb(250,250,250))
+        pt1 = Point(40,220)
+        pt2 = Point(460,220)
+        Lne = Line(pt1,pt2)
+        Lne.setOutline(color_rgb(250,250,250))
+        Lne.draw(win)
 
-    txt2 = Text(Point(250,280),"Gioca")
-    txt2.setOutline(color_rgb(250,250,250))
-    txt2.setSize(18)
-    txt2.draw(win)
+        txt = Text(Point(250,200), "Benvenuto al gioco della Roulette!")
+        txt.setSize(20)
+        txt.setTextColor(color_rgb(250, 250 ,250))
+        txt.draw(win)
 
-    win.getMouse()
-    win.close()
+        Rec = Rectangle(Point(170,260),Point(330,300))
+        Rec.draw(win)
+        Rec.setOutline(color_rgb(250,250,250))
 
-    #Budget
+        txt2 = Text(Point(250,280),"Gioca")
+        txt2.setOutline(color_rgb(250,250,250))
+        txt2.setSize(18)
+        txt2.draw(win)
 
-    Budget = int(500)
+        win.getMouse()
+        win.close()
 
-    #Pagina 2
+        #Budget
 
-    Count = 0
+        Budget = int(500)
 
-    win2 = GraphWin("Roulette",700,700)
-    win2.setBackground("green")
+        #Pagina 2
 
-     ##Immagine Roulette
+        Count = 0
 
-    img = Image(Point(350, 350), "roul.png")
-    img.draw(win2)
+        win2 = GraphWin("Roulette",700,700)
+        win2.setBackground("green")
 
-    ok = Rectangle(Point(455,585),Point(485,615))
-    ok.setOutline("White")
-    ok.draw(win2)
+         ##Immagine Roulette
 
-    ok2 = Text(Point(470,600),"OK")
-    ok2.setSize(12)
-    ok2.setOutline("White")
-    ok2.draw(win2)
+        img = Image(Point(350, 350), "roul.png")
+        img.draw(win2)
 
-    while Count < 100:
+        ok = Rectangle(Point(455,585),Point(485,615))
+        ok.setOutline("White")
+        ok.draw(win2)
 
-    ##Testo "Quanto vuoi puntare?"
+        ok2 = Text(Point(470,600),"OK")
+        ok2.setSize(12)
+        ok2.setOutline("White")
+        ok2.draw(win2)
 
-        txt2 = Text(Point(350,570),"Quanto vuoi puntare?")
-        txt2.setSize(17)
-        txt2.setTextColor("White")
-        txt2.draw(win2)
+        while Count < 100:
 
-    ##Box Puntata
-    
-        box = Entry(Point(350,600),20)
-        box.draw(win2)
+        ##Testo "Quanto vuoi puntare?"
 
-    ##Testo "Budget"
+            txt2 = Text(Point(350,570),"Quanto vuoi puntare?")
+            txt2.setSize(17)
+            txt2.setTextColor("White")
+            txt2.draw(win2)
 
-        b1txt = Text(Point(52,20),"Budget:")
-        b1txt.setSize(18)
-        b1txt.setOutline("White")
-        b1txt.draw(win2)
-    
-        btxt = Text(Point(117,20),(Budget))
-        btxt.setSize(18)
-        btxt.setOutline("White")
-        btxt.draw(win2)
+        ##Box Puntata
 
-        #Puntata
+            box = Entry(Point(350,600),20)
+            box.draw(win2)
 
-        Giri = 1
+        ##Testo "Budget"
 
-        while Giri > 0:
+            b1txt = Text(Point(52,20),"Budget:")
+            b1txt.setSize(18)
+            b1txt.setOutline("White")
+            b1txt.draw(win2)
 
-            win2.getMouse()
-        
-            Puntata= int(box.getText())
+            btxt = Text(Point(117,20),(Budget))
+            btxt.setSize(18)
+            btxt.setOutline("White")
+            btxt.draw(win2)
 
-            if Puntata <= Budget:
-                Giri = Giri - 1
-            else:
-                txt2.setText("Non hai abbastanza soldi per puntare così alto!")
-                Giri = 1
+            #Puntata
 
-        Puntata = box.getText()
+            Giri = 1
 
-        win2.getMouse()
-               
-            
-        #Puntata Testo
+            while Giri > 0:
 
-        ptxt = Text(Point(350,630),"Hai Puntato:")
-        ptxt.setSize(15)
-        ptxt.setOutline("White")
-        ptxt.draw(win2)
+                win2.getMouse()
 
-        ptxt = Text(Point(350,655),(Puntata))
-        ptxt.setSize(15)
-        ptxt.setOutline("White")
-        ptxt.draw(win2)
+                Puntata= int(box.getText())
 
-        #Modalità
+                if Puntata <= Budget:
+                    Giri = Giri - 1
+                else:
+                    txt2.setText("Non hai abbastanza soldi per puntare così alto!")
+                    Giri = 1
 
-        box.setText("")
-
-        txt2.setText("Su quali numeri vuoi puntare? Pari o Dispari?")
-        txt2.setSize(13)
-
-        pd = 1
-
-        while pd > 0:
+            Puntata = box.getText()
 
             win2.getMouse()
 
-            Modalita = box.getText()
 
-            if not Modalita == "Pari" or "Dispari":
-                pd = 0
-            else:
-                txt2.setText("Scrivi Pari o Dispari!")
-                pd = 1
-                
+            #Puntata Testo
 
-        if Modalita == "Pari":
-            Modalita = int(1)
-        else:
-            Modalita= int(2)
+            ptxt = Text(Point(350,630),"Hai Puntato:")
+            ptxt.setSize(15)
+            ptxt.setOutline("White")
+            ptxt.draw(win2)
 
-        #Roulette
+            ptxt = Text(Point(350,655),(Puntata))
+            ptxt.setSize(15)
+            ptxt.setOutline("White")
+            ptxt.draw(win2)
 
-        oktxt = Text(Point(350,680),"Clicca per girare la Roulette!")
-        oktxt.setSize(10)
-        oktxt.setOutline("Black")
-        oktxt.draw(win2)
+            #Modalità
 
-        win2.getMouse()
-        oktxt.move(1000,1000)
+            box.setText("")
 
-        import random
-        for x in range(1):
-            Numero = random.randint(0,37)
+            txt2.setText("Su quali numeri vuoi puntare? Pari o Dispari?")
+            txt2.setSize(13)
 
-        numtxt= Text(Point(350,80),Numero)
-        numtxt.setSize(20)
-        numtxt.setOutline("White")
-        numtxt.draw(win2)
+            pd = 1
 
-        win2.getMouse()
+            while pd > 0:
 
-        Vincita = int(Budget) + int(Puntata) + int(Puntata)
+                win2.getMouse()
 
-        Vincita2 = int(Puntata) + int(Puntata)
+                Modalita = box.getText()
 
-        Perdita2 = int(Puntata)
-
-        Perdita = int(Budget) - int(Puntata)
-
-        Resto = Numero%2
-
-        for x in range(2):
-        
-            if Resto > 0:
-                if Modalita > 1:
-                    Budget = Vincita
-                    numtxt.setText("Hai Vinto!")
-                    win2.getMouse()
-                    numtxt.setText("Hai Vinto:" and Vincita2)
+                if not Modalita == "Pari" or "Dispari":
+                    pd = 0
                 else:
-                    Budget = Perdita
-                    numtxt.setText("Hai Perso!")
-                    win2.getMouse()
-                    numtxt.setText("Hai Perso:" and Perdita2)
-            else:
-                if Modalita < 2:
-                    Budget = Vincita
-                    numtxt.setText("Hai Vinto!")
-                    win2.getMouse()
-                    numtxt.setText("Hai Vinto:" and Vincita2)
-                else:
-                    Budget = Perdita
-                    numtxt.setText("Hai Perso!")
-                    win2.getMouse()
-                    numtxt.setText("Hai Perso:" and Perdita2)
+                    txt2.setText("Scrivi Pari o Dispari!")
+                    pd = 1
 
-        win2.getMouse()
-        
-        btxt.setText("")
-        txt2.setText("")
-        ptxt.setText("")
-        numtxt.setText("")
-            
-        
-main()
-#---------------------------------------------------------
+
+            if Modalita == "Pari":
+                Modalita = int(1)
+            else:
+                Modalita= int(2)
+
+            #Roulette
+
+            oktxt = Text(Point(350,680),"Clicca per girare la Roulette!")
+            oktxt.setSize(10)
+            oktxt.setOutline("Black")
+            oktxt.draw(win2)
+
+            win2.getMouse()
+            oktxt.move(1000,1000)
+
+            import random
+            for x in range(1):
+                Numero = random.randint(0,37)
+
+            numtxt= Text(Point(350,80),Numero)
+            numtxt.setSize(20)
+            numtxt.setOutline("White")
+            numtxt.draw(win2)
+
+            win2.getMouse()
+
+            Vincita = int(Budget) + int(Puntata) + int(Puntata)
+
+            Vincita2 = int(Puntata) + int(Puntata)
+
+            Perdita2 = int(Puntata)
+
+            Perdita = int(Budget) - int(Puntata)
+
+            Resto = Numero%2
+
+            for x in range(2):
+
+                if Resto > 0:
+                    if Modalita > 1:
+                        Budget = Vincita
+                        numtxt.setText("Hai Vinto!")
+                        win2.getMouse()
+                        numtxt.setText("Hai Vinto:" and Vincita2)
+                    else:
+                        Budget = Perdita
+                        numtxt.setText("Hai Perso!")
+                        win2.getMouse()
+                        numtxt.setText("Hai Perso:" and Perdita2)
+                else:
+                    if Modalita < 2:
+                        Budget = Vincita
+                        numtxt.setText("Hai Vinto!")
+                        win2.getMouse()
+                        numtxt.setText("Hai Vinto:" and Vincita2)
+                    else:
+                        Budget = Perdita
+                        numtxt.setText("Hai Perso!")
+                        win2.getMouse()
+                        numtxt.setText("Hai Perso:" and Perdita2)
+
+            win2.getMouse()
+
+            btxt.setText("")
+            txt2.setText("")
+            ptxt.setText("")
+            numtxt.setText("")
+
+
+    main()
+    #---------------------------------------------------------
