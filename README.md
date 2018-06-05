@@ -1,6 +1,6 @@
 # RoulettePython
 A simple roulette game in pyhton with only graphics.py library.
- The language is in Italian, i'll update it in English too soon.
+ The language is in Italian, i'll update it in English soon.
 
 #Inizio
 from graphics import *
